@@ -66,7 +66,7 @@ while True:
                 text_surface = small_font.render(triangle[row][index].upper(), False, (0, 0, 0))
                 screen.blit(text_surface, (center[0] - text_offset, center[1] - text_offset - 8))
 
-            """if row < n - 1:
+            if row < n - 1:
                 corners = triangle[row][index] + triangle[row + 1][index] + triangle[row+1][index+1]
                 if "r" in corners and "g" in corners and "b" in corners:
                     poly_count += 1
@@ -77,7 +77,7 @@ while True:
                 if "r" in corners and "g" in corners and "b" in corners:
                     poly_count += 1
                     moved_center = (centers[row][index][0], centers[row][index][1] - point_buff / 2 - 2 * dot_radius)
-                    pygame.draw.circle(screen, (255, 0, 255), moved_center, dot_radius)"""
+                    pygame.draw.circle(screen, (255, 0, 255), moved_center, dot_radius)
 
     text_surface = my_font.render(str(poly_count), False, (255, 0, 255))
     screen.blit(text_surface, (width - 4 * x_buff, y_buff))
