@@ -18,6 +18,7 @@ screen = pygame.display.set_mode((width, height))
 n = 6
 x_buff, y_buff = 20, 20
 dot_radius = 30
+poly_dot_radius = 10
 point_buff = (width - (2 * x_buff) - (n * 2 * dot_radius)) / (n - 1)
 mid_x = (width - 2 * x_buff) / 2
 
@@ -71,13 +72,13 @@ while True:
                 if "r" in corners and "g" in corners and "b" in corners:
                     poly_count += 1
                     moved_center = (centers[row][index][0], centers[row][index][1] + point_buff / 2 + 2 * dot_radius)
-                    pygame.draw.circle(screen, (255, 0, 255), moved_center, dot_radius)
+                    pygame.draw.circle(screen, (255, 0, 255), moved_center, poly_dot_radius)
             if row > 0 and 0 < index and index < row:
                 corners = triangle[row][index] +  triangle[row - 1][index - 1] +  triangle[row - 1][index]
                 if "r" in corners and "g" in corners and "b" in corners:
                     poly_count += 1
                     moved_center = (centers[row][index][0], centers[row][index][1] - point_buff / 2 - 2 * dot_radius)
-                    pygame.draw.circle(screen, (255, 0, 255), moved_center, dot_radius)
+                    pygame.draw.circle(screen, (255, 0, 255), moved_center, poly_dot_radius)
 
     text_surface = my_font.render(str(poly_count), False, (255, 0, 255))
     screen.blit(text_surface, (width - 4 * x_buff, y_buff))
