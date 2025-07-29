@@ -281,25 +281,30 @@ if selected:
                 closest_vertex = i
 
         success, error_msg = utils.handle_vertex_click(closest_vertex, click_x, click_y)
-        
-        if not success:
-            fig.add_annotation(
-                x=click_x,
-                y=click_y,
-                text="❌ Invalid",
-                showarrow=True,
-                arrowhead=4,
-                ax=0,
-                ay=-30,
-                font=dict(color="red", size=13),
-                bgcolor="rgba(255,255,255,0.85)",
-                bordercolor="red",
-                borderwidth=1,
-                borderpad=4
-            )
-            warning_spot.warning(error_msg)
-            # Clear the event so it doesn't stick around
-            if "last_selected_event" in st.session_state:
-                del st.session_state.last_selected_event
-        else:
-            st.rerun()
+
+
+    if not success and error_msg:  # Only show warning if there's an actual error message
+        fig.add_annotation(
+            x=click_x,
+            y=click_y,
+            text="❌ Invalid",
+            showarrow=True,
+            arrowhead=4,
+            ax=0,
+            ay=-30,
+            font=dict(color="red", size=13),
+            bgcolor="rgba(255,255,255,0.85)",
+            bordercolor="red",
+            borderwidth=1,
+            borderpad=4
+        )
+        warning_spot.warning(error_msg)
+        # Clear the event so it doesn't stick around
+        if "last_selected_event" in st.session_state:
+            del st.session_state.last_selected_event
+    elif not success:
+        # Already colored vertex - just clear the event and do nothing
+        if "last_selected_event" in st.session_state:
+            del st.session_state.last_selected_event
+    else:
+        st.rerun()
