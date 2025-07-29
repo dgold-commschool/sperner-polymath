@@ -1,6 +1,6 @@
-# Sperner's Game - Maximizer vs Minimizer
+# The Sperner Game - Maximizer vs Minimizer
 
-**Sperner's Game - Maximizer vs Minimizer** is an interactive web app developed by researchers in the **Polymath Jr. Research Program** to explore and demonstrate a game based upon **Sperner's Lemma**.
+**The Sperner Game - Maximizer vs Minimizer** is an interactive web app developed by researchers in the **Polymath Jr. Research Program** to explore and demonstrate a game based upon **Sperner's Lemma**.
 
 The game allows players to take turns coloring vertices in a triangulated triangle according to Sperner's boundary rules, with one player acting as the **Maximizer** (trying to maximize the number of polychrome triangles) and the other as the **Minimizer** (trying to minimize them).
 
