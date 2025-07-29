@@ -150,7 +150,7 @@ def update_polychrome_count():
 def handle_vertex_click(closest_vertex, click_x, click_y):
     """Handle clicking on a vertex, return success status and error message"""
     if st.session_state.vertex_colors[closest_vertex] is not None:
-        return False, "Vertex already colored"
+        return False, ""  # Return empty string instead of None for already-colored vertices
     
     allowed = st.session_state.allowed_colors.get(closest_vertex, {"red", "green", "blue"})
     if st.session_state.color_picker not in allowed:
